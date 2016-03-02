@@ -1,0 +1,253 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "MainScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "menu1.jpg",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 358.8776,
+              "Y": 638.2903
+            },
+            "Scale": {
+              "ScaleX": 0.4793,
+              "ScaleY": 1.1102
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4984,
+              "Y": 0.4987
+            },
+            "PreSize": {
+              "X": 2.0375,
+              "Y": 0.8984
+            },
+            "LeftMargin": -374.6224,
+            "RightMargin": -372.3777,
+            "TopMargin": 66.7097,
+            "BottomMargin": 63.2903,
+            "Tag": 5,
+            "ActionTag": 953446860,
+            "Size": {
+              "X": 1467.0,
+              "Y": 1150.0
+            },
+            "Name": "Default",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 254.0394,
+              "Y": 293.3502
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 253,
+              "G": 239,
+              "B": 239
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3528,
+              "Y": 0.2292
+            },
+            "PreSize": {
+              "X": 0.2778,
+              "Y": 0.1562
+            },
+            "LeftMargin": 254.0394,
+            "RightMargin": 265.9606,
+            "TopMargin": 786.6498,
+            "BottomMargin": 293.3502,
+            "Tag": 24,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "startgame3.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "startgame2.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "startgame.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 96,
+                "Scale9Height": 24,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.4881,
+                  "ScaleY": 0.4464
+                },
+                "Position": {
+                  "X": 79.4923,
+                  "Y": 81.3791
+                },
+                "Scale": {
+                  "ScaleX": 1.0364,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3975,
+                  "Y": 0.4069
+                },
+                "PreSize": {
+                  "X": 0.63,
+                  "Y": 0.23
+                },
+                "LeftMargin": 17.9917,
+                "RightMargin": 56.0083,
+                "TopMargin": 93.1553,
+                "BottomMargin": 60.8447,
+                "Tag": 18,
+                "ActionTag": 232464103,
+                "Size": {
+                  "X": 126.0,
+                  "Y": 46.0
+                },
+                "Name": "Button_1",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Default",
+                  "Path": "Default/defaultParticle.plist",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 775,
+                  "Dst": 1
+                },
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 171.8494,
+                  "Y": 82.0784
+                },
+                "Scale": {
+                  "ScaleX": 0.587,
+                  "ScaleY": 0.8455
+                },
+                "CColor": {},
+                "IconVisible": true,
+                "PrePosition": {
+                  "X": 0.8592,
+                  "Y": 0.4104
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 171.8494,
+                "RightMargin": 28.1506,
+                "TopMargin": 117.9216,
+                "BottomMargin": 82.0784,
+                "Tag": 21,
+                "ActionTag": 618979713,
+                "Size": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Name": "Particle_1",
+                "ctype": "ParticleObjectData"
+              }
+            ],
+            "ActionTag": -554356101,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 720.0,
+          "Y": 1280.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Default/defaultParticle.plist",
+        "menu1.jpg",
+        "startgame.png",
+        "startgame2.png",
+        "startgame3.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
