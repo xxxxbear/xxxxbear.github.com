@@ -1,0 +1,53 @@
+1、M('表名')：模型
+2、I('get.title','') / M('表名')->create();安全收集所有post数据
+3、sql操作
+① 查询：M('表名')->where('id=50 and name=123')->order('add_time desc/asc')->limit('0,20')->select()/find();
+② 添加：M('表名')->add(array('key'=>'value'));//返回主键ID
+③ 编辑：M('表名')->where()->save(array('主键ID'=>100,'key'=>'value'));
+④ 删除：M('表名')->where()->delete('10,50,100');
+⑤ 万能方法：M('表名')->query('dql sql语句')/M('表名')->execute('dml sql语句')
+4、分配变量到模板：$this->assign('info','变量名')
+	<{$Info}>  
+	<{foreach name='info' item='v'}>    <{/foreach}>
+5、显示模板：$this->display();
+
+6、提示方法：$this->success('更新栏目信息成功',3,'去哪');/$this->error('更新栏目信息失败');
+
+
+访问路径：http://网址/index.php/分组/控制器/方法/id/5/name/zhangsan
+$_GET['id']====I('get.id')
+
+//主页
+href="{:U('index')}"
+
+<for start="1" end="$count + 1">
+            <if condition="$i == 1 "><li class="on"></li>
+                <else /> <li></li>
+            </if>
+        </for>
+ <foreach name="shows" item="v" key="k" >
+              <li><img src="{$v.content}" width="100%" />
+                  <div class="tits">{$title}</div>
+              </li>
+          </foreach>
+name,sdata,edata,content
+
+<{for start="1" end="$count + 1"}>
+                <{if condition="$i == 1 "}>
+                    <li class="on"></li>
+                    <{else /}>
+                    <li></li>
+                <{/if}>
+            <{/for}>
+
+<{foreach name="shows" item="v" key="k" }>
+                        <li><img src="<{$v.img_url}>" width="100%" /></li>
+                    <{/foreach}>
+
+
+百度控件-》
+字体
+,toolbars:[['source','fontfamily','fontsize','forecolor', 'bold','link','unlink','simpleupload', 'insertimage','justifyleft', 'justifycenter', 'justifyright',]]
+
+字号
+,toolbars:[['source','paragraph','fontfamily','fontsize','forecolor', 'bold','link','unlink','simpleupload', 'insertimage','justifyleft', 'justifycenter', 'justifyright',]]
