@@ -1,5 +1,10 @@
+//多对多表的查询
 SELECT sql_id,name, GROUP_CONCAT(class, ',') AS class
 FROM study_sql as a
 JOIN study_sql_item as b ON a.sql_id = b.sql_id
 JOIN study_item ON b.item_id = c.item_id
 GROUP BY sql_id;
+
+
+//设置自增长的id的初始值
+alter table card_order auto_increment = 10000008
