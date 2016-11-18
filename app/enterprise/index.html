@@ -285,6 +285,11 @@
         console.log(ele);
         var $action = $(ele).attr("data-action");
         console.log($action);
+        swith($action){
+          case "userInfo":
+          alert("获取用户的信息");
+          break;
+        }
         document.location.href = "http://senhe.senhet.com:666?action=" + $action;
       }
     </script>
