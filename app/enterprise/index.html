@@ -10,7 +10,7 @@
 ">
 
     <link rel="stylesheet" href="src/lib/weui.min.css">
-    <link rel="stylesheet" href="css/jquery-weui.css">
+    <!-- <link rel="stylesheet" href="css/jquery-weui.css"> -->
     <link rel="stylesheet" href="css/demos.css">
   </head>
 
@@ -279,7 +279,7 @@
         FastClick.attach(document.body);
       });
     </script>
-    <script src="js/jquery-weui.js"></script>
+    <script src="src/lib/jquery-weui.min.js"></script>
     <script type="text/javascript">
       function goApi(ele){
         console.log(ele);
@@ -287,18 +287,20 @@
         console.log($action);
         switch($action){
           case "userInfo":
-          message("userInfo","获取用户的信息");
+          message($action,"获取用户的信息",$action);
           break;
+          default:
+          message($action,"人类要完蛋了！",$action);
         }
-        document.location.href = "http://senhe.senhet.com:666?action=" + $action;
+        
       }
-      function message($title,$content){
+      function message($title,$content,$action){
         //如果参数过多，通过 object 方式传入
         $.alert({
           title: $title,
           text: $content,
           onOK: function () {
-            //点击确认
+            document.location.href = "http://senhe.senhet.com:666?action=" + $action;
           }
         });
       }
