@@ -287,10 +287,20 @@
         console.log($action);
         switch($action){
           case "userInfo":
-          alert("获取用户的信息");
+          message("userInfo","获取用户的信息");
           break;
         }
         document.location.href = "http://senhe.senhet.com:666?action=" + $action;
+      }
+      function message($title,$content){
+        //如果参数过多，通过 object 方式传入
+        $.alert({
+          title: $title,
+          text: $content,
+          onOK: function () {
+            //点击确认
+          }
+        });
       }
     </script>
     </body>
