@@ -54,20 +54,21 @@
           设置应用
         </p>
       </a>
+      
+      <a href="#" onclick="goApi(this)" data-action="getAgents" class="weui_grid js_grid">
+        <div class="weui_grid_icon">
+          <img src="images/icon_nav_progress.png" alt="">
+        </div>
+        <p class="weui_grid_label">
+          获取所有应用
+        </p>
+      </a>
       <a href="#" onclick="goApi(this)" data-action="message" class="weui_grid js_grid">
         <div class="weui_grid_icon">
           <img src="images/icon_nav_toast.png" alt="">
         </div>
         <p class="weui_grid_label">
           发送消息
-        </p>
-      </a>
-      <a href="progress.html" class="weui_grid js_grid">
-        <div class="weui_grid_icon">
-          <img src="images/icon_nav_progress.png" alt="">
-        </div>
-        <p class="weui_grid_label">
-          Progress
         </p>
       </a>
       <a href="msg.html" class="weui_grid js_grid">
@@ -288,6 +289,18 @@
         switch($action){
           case "userInfo":
           message($action,"获取用户的信息",$action);
+          break;
+          case "login":
+          message($action,"登入必须有第三方应用！",$action);
+          break;
+          case "getAgent":
+          message($action,"获取对应应用的信息",$action);
+          break;
+          case "setAgent":
+          message($action,"只设置应用的名字是没用的！",$action);
+          break;
+          case "getAgents":
+          message($action,"获取所有的信息！",$action);
           break;
           default:
           message($action,"人类要完蛋了！",$action);
