@@ -22,7 +22,7 @@
     </header>
 
     <div class="weui_grids">
-      <a href="http://senhe.senhet.com:666?action=userInfo" class="weui_grid js_grid">
+      <a href="#" onclick="goApi(this)" data-action="userInfo" class="weui_grid js_grid">
         <div class="weui_grid_icon">
           <img src="images/icon_nav_button.png" alt="">
         </div>
@@ -30,7 +30,7 @@
           获取用户信息
         </p>
       </a>
-      <a href="http://senhe.senhet.com:666?action=login" class="weui_grid js_grid">
+      <a href="#" onclick="goApi(this)" data-action="login" class="weui_grid js_grid">
         <div class="weui_grid_icon">
           <img src="images/icon_nav_cell.png" alt="">
         </div>
@@ -38,7 +38,7 @@
           登陆
         </p>
       </a>
-      <a href="http://senhe.senhet.com:666?action=getAgent" class="weui_grid js_grid">
+      <a href="#" onclick="goApi(this)" data-action="getAgent" class="weui_grid js_grid">
         <div class="weui_grid_icon">
           <img src="images/icon_nav_cell.png" alt="">
         </div>
@@ -46,20 +46,20 @@
           获取应用
         </p>
       </a>
-      <a href="http://senhe.senhet.com:666?action=message" class="weui_grid js_grid">
+      <a href="#" onclick="goApi(this)" data-action="setAgent" class="weui_grid js_grid">
+        <div class="weui_grid_icon">
+          <img src="images/icon_nav_dialog.png" alt="">
+        </div>
+        <p class="weui_grid_label">
+          设置应用
+        </p>
+      </a>
+      <a href="#" onclick="goApi(this)" data-action="message" class="weui_grid js_grid">
         <div class="weui_grid_icon">
           <img src="images/icon_nav_toast.png" alt="">
         </div>
         <p class="weui_grid_label">
           发送消息
-        </p>
-      </a>
-      <a href="dialog.html" class="weui_grid js_grid">
-        <div class="weui_grid_icon">
-          <img src="images/icon_nav_dialog.png" alt="">
-        </div>
-        <p class="weui_grid_label">
-          Dialog
         </p>
       </a>
       <a href="progress.html" class="weui_grid js_grid">
@@ -280,6 +280,14 @@
       });
     </script>
     <script src="js/jquery-weui.js"></script>
+    <script type="text/javascript">
+      function goApi(ele){
+        console.log(ele);
+        var $action = $(ele).attr("data-action");
+        console.log($action);
+        document.location.href = "http://senhe.senhet.com:666?action=" + $action;
+      }
+    </script>
     </body>
 
   </html>
