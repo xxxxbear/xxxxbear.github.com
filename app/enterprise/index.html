@@ -88,28 +88,28 @@
           获取成员
         </p>
       </a>
+      <a href="#" onclick="goApi(this)" data-action="getBranchUser"  class="weui_grid js_grid">
+        <div class="weui_grid_icon">
+          <img src="images/icon_nav_icons.png" alt="">
+        </div>
+        <p class="weui_grid_label">
+          获取部门成员
+        </p>
+      </a>
+      <a href="#" onclick="goApi(this)" data-action="getBranchUserDetail" class="weui_grid js_grid">
+        <div class="weui_grid_icon">
+          <img src="images/icon_nav_panel.png" alt="">
+        </div>
+        <p class="weui_grid_label">
+          部门成员详情
+        </p>
+      </a>
       <a href="#" onclick="goApi(this)" data-action="message" class="weui_grid js_grid">
         <div class="weui_grid_icon">
           <img src="images/icon_nav_toast.png" alt="">
         </div>
         <p class="weui_grid_label">
           发送消息
-        </p>
-      </a>
-      <a href="icons.html" class="weui_grid js_grid">
-        <div class="weui_grid_icon">
-          <img src="images/icon_nav_icons.png" alt="">
-        </div>
-        <p class="weui_grid_label">
-          Icons
-        </p>
-      </a>
-      <a href="panel.html" class="weui_grid js_grid">
-        <div class="weui_grid_icon">
-          <img src="images/icon_nav_panel.png" alt="">
-        </div>
-        <p class="weui_grid_label">
-          Panel
         </p>
       </a>
       <a href="tabbar.html" class="weui_grid js_grid">
@@ -311,6 +311,12 @@
           break;
           case "getUser":
           message($action,"获取成员",$action);
+          break;
+          case "getBranchUser":
+          message($action,"获取部门成员信息",$action);
+          break;
+          case "getBranchUserDetail":
+          message($action,"获取部门成员信息详情",$action);
           break;
           default:
           message($action,"人类要完蛋了！",$action);
