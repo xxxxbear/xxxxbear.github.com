@@ -72,20 +72,20 @@
           获取菜单
         </p>
       </a>
+      <a href="#" onclick="goApi(this)" data-action="getContact" class="weui_grid js_grid">
+        <div class="weui_grid_icon">
+          <img src="images/icon_nav_article.png" alt="">
+        </div>
+        <p class="weui_grid_label">
+          获取通讯录部门
+        </p>
+      </a>
       <a href="#" onclick="goApi(this)" data-action="message" class="weui_grid js_grid">
         <div class="weui_grid_icon">
           <img src="images/icon_nav_toast.png" alt="">
         </div>
         <p class="weui_grid_label">
           发送消息
-        </p>
-      </a>
-      <a href="article.html" class="weui_grid js_grid">
-        <div class="weui_grid_icon">
-          <img src="images/icon_nav_article.png" alt="">
-        </div>
-        <p class="weui_grid_label">
-          Article
         </p>
       </a>
       <a href="action-sheet.html" class="weui_grid js_grid">
@@ -305,6 +305,9 @@
           break;
           case "getMenu":
           message($action,"获取对应应用的菜单信息（回调的菜单设置完了后没发布菜单获取到的是没有回调的菜单囧！）",$action);
+          break;
+          case "getContact":
+          message($action,"获取通信撸中的部门和子部门",$action);
           break;
           default:
           message($action,"人类要完蛋了！",$action);
