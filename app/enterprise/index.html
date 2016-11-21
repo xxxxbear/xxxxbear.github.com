@@ -77,7 +77,15 @@
           <img src="images/icon_nav_article.png" alt="">
         </div>
         <p class="weui_grid_label">
-          获取通讯录部门
+          获取通讯部门
+        </p>
+      </a>
+      <a href="#" onclick="goApi(this)" data-action="getUser" class="weui_grid js_grid">
+        <div class="weui_grid_icon">
+          <img src="images/icon_nav_actionSheet.png" alt="">
+        </div>
+        <p class="weui_grid_label">
+          获取成员
         </p>
       </a>
       <a href="#" onclick="goApi(this)" data-action="message" class="weui_grid js_grid">
@@ -86,14 +94,6 @@
         </div>
         <p class="weui_grid_label">
           发送消息
-        </p>
-      </a>
-      <a href="action-sheet.html" class="weui_grid js_grid">
-        <div class="weui_grid_icon">
-          <img src="images/icon_nav_actionSheet.png" alt="">
-        </div>
-        <p class="weui_grid_label">
-          ActionSheet
         </p>
       </a>
       <a href="icons.html" class="weui_grid js_grid">
@@ -308,6 +308,9 @@
           break;
           case "getContact":
           message($action,"获取通信撸中的部门和子部门",$action);
+          break;
+          case "getUser":
+          message($action,"获取成员",$action);
           break;
           default:
           message($action,"人类要完蛋了！",$action);
