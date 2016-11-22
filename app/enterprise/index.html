@@ -20,7 +20,7 @@
       <h1 class="demos-title">接口调试</h1>
       <p class='demos-sub-title'>boom</p>
     </header>
-
+    
     <div class="weui_grids">
       <a href="#" onclick="goApi(this)" data-action="userInfo" class="weui_grid js_grid">
         <div class="weui_grid_icon">
@@ -112,20 +112,20 @@
           发送消息
         </p>
       </a>
-      <a href="tabbar.html" class="weui_grid js_grid">
+      <a href="JavaScript:tempFile();" class="weui_grid js_grid">
         <div class="weui_grid_icon">
           <img src="images/icon_nav_tab.png" alt="">
         </div>
         <p class="weui_grid_label">
-          Tabbar
+          上传临时附件
         </p>
       </a>
-      <a href="searchbar.html" class="weui_grid js_grid">
+      <a href="JavaScript:foreverFile();" class="weui_grid js_grid">
         <div class="weui_grid_icon">
           <img src="images/icon_nav_search_bar.png" alt="">
         </div>
         <p class="weui_grid_label">
-          SearchBar
+          上传永久附件
         </p>
       </a>
       <a href="toptip.html" class="weui_grid js_grid">
@@ -267,6 +267,9 @@
                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </section>
           </section>
+          <div class="weui_btn_area">
+            <a href="javascript:;" class="weui_btn weui_btn_primary" id="btnStartProgress">上天</a>
+          </div>
           <section>
             <a href="javascript:;" class="weui_btn weui_btn_plain_primary close-popup">爆炸</a>
           </section>
@@ -283,6 +286,39 @@
     </script>
     <script src="src/lib/jquery-weui.min.js"></script>
     <script type="text/javascript">
+      var $requestUrl = "http://senhe.senhet.com:666";
+      function tempFile(){
+        var url = $requestUrl + "?action=uploadTemp";
+        var pams = [];
+        pams.push($('<input>', {name: 'upload', type: 'file'}));
+        var form = $('<form>', {
+            method: 'post',
+            enctype: 'multipart/form-data',
+            action: url
+        }).append(pams);
+        var fileInput = $(form).find("input[name='upload']");
+        fileInput.click();
+        fileInput.change(function(){
+          form.submit();
+        });
+        //$("#tempFile").click();
+      }
+      function foreverFile(){
+        var url = $requestUrl + "?action=uploadForever";
+        var pams = [];
+        pams.push($('<input>', {name: 'upload', type: 'file'}));
+        var form = $('<form>', {
+            method: 'post',
+            enctype: 'multipart/form-data',
+            action: url
+        }).append(pams);
+        var fileInput = $(form).find("input[name='upload']");
+        fileInput.click();
+        fileInput.change(function(){
+          form.submit();
+        });
+      }
+
       function goApi(ele){
         console.log(ele);
         var $action = $(ele).attr("data-action");
@@ -321,15 +357,15 @@
           default:
           message($action,"人类要完蛋了！",$action);
         }
-        
       }
+
       function message($title,$content,$action){
         //如果参数过多，通过 object 方式传入
         $.alert({
           title: $title,
           text: $content,
           onOK: function () {
-            document.location.href = "http://senhe.senhet.com:666?action=" + $action;
+            document.location.href = $requestUrl + "?action=" + $action;
           }
         });
       }
