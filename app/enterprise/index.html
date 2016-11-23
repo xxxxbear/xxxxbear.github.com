@@ -47,22 +47,6 @@
                 <p class='demos-sub-title'>接口调试</p>
             </header>
             <div class="weui_grids">
-                <a href="#" onclick="goApi(this)" data-action="userInfo" class="weui_grid js_grid">
-                    <div class="weui_grid_icon">
-                        <img src="images/icon_nav_button.png" alt="">
-                    </div>
-                    <p class="weui_grid_label">
-                        获取用户信息
-                    </p>
-                </a>
-                <a href="#" onclick="goApi(this)" data-action="login" class="weui_grid js_grid">
-                    <div class="weui_grid_icon">
-                        <img src="images/icon_nav_cell.png" alt="">
-                    </div>
-                    <p class="weui_grid_label">
-                        登陆
-                    </p>
-                </a>
                 <a href="#" onclick="goApi(this)" data-action="getAgent" class="weui_grid js_grid">
                     <div class="weui_grid_icon">
                         <img src="images/icon_nav_cell.png" alt="">
@@ -366,7 +350,7 @@
 </script>
 <script src="src/lib/jquery-weui.min.js"></script>
 <script type="text/javascript">
-    var $requestUrl = "http://senhe.senhet.com:666";
+    var $requestUrl = "http://senhe.senhet.com:666/qiyehao/index.php";
     function tempFile() {
         var url = $requestUrl + "?action=uploadTemp";
         var pams = [];
