@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>企业号接口调试</title>
+    <title>微信接口调试</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -10,14 +10,14 @@
 ">
 
     <link rel="stylesheet" href="src/lib/weui.min.css">
-    <!-- <link rel="stylesheet" href="css/jquery-weui.css"> -->
+    <link rel="stylesheet" href="src/lib/jquery-weui.min.css">
     <link rel="stylesheet" href="css/demos.css">
 </head>
 
 <body ontouchstart>
 <div class="weui_tab">
     <div class="weui_tab_bd">
-        <div id="tab1" class="weui_tab_bd_item weui_tab_bd_item_active">
+        <div id="tab1" class="weui_tab_bd_item">
             <header class='demos-header'>
                 <h1 class="demos-title">认证接口</h1>
                 <p class='demos-sub-title'>接口调试</p>
@@ -180,35 +180,35 @@
                 </a>
             </div>
         </div>
-        <div id="tab4" class="weui_tab_bd_item">
+        <div id="tab4" class="weui_tab_bd_item weui_tab_bd_item_active">
             <header class='demos-header'>
-                <h1 class="demos-title">SaaS套件接口</h1>
-                <p class='demos-sub-title'>接口调试</p>
+                <h1 class="demos-title">公众号调试</h1>
+                <p class='demos-sub-title' id="weixinLogin" style="color: red">还未登录</p>
             </header>
             <div class="weui_grids">
                 
-                <a href="cols.html" class="weui_grid js_grid">
+                <a onclick="goWeixin(this)" data-action="login" class="weui_grid js_grid">
                     <div class="weui_grid_icon">
                         <img src="images/icon_nav_cell.png" alt="">
                     </div>
                     <p class="weui_grid_label">
-                        12栏栅格
+                        微信登陆
                     </p>
                 </a>
-                <a href="picker.html" class="weui_grid js_grid">
+                <a onclick="goWeixin(this)" data-action="userInfo" class="weui_grid js_grid">
                     <div class="weui_grid_icon">
                         <img src="images/icon_nav_picker.png" alt="">
                     </div>
                     <p class="weui_grid_label">
-                        Picker
+                        用户信息
                     </p>
                 </a>
-                <a href="calendar.html" class="weui_grid js_grid">
+                <a onclick="goWeixin(this)" data-action="normalPay" class="weui_grid js_grid">
                     <div class="weui_grid_icon">
                         <img src="images/icon_nav_calendar.png" alt="">
                     </div>
                     <p class="weui_grid_label">
-                        Calendar
+                        统一下单
                     </p>
                 </a>
                 <a href="city-picker.html" class="weui_grid js_grid">
@@ -270,7 +270,37 @@
             </div>
         </div>
         <div id="tab5" class="weui_tab_bd_item">
-            <div id="about" class='weui-popup-container'>
+            <header class='demos-header'>
+                <h1 class="demos-title">$$</h1>
+                <p class='demos-sub-title'>$$</p>
+            </header>
+            <div class="weui_grids">
+                <a href="" class="weui_grid js_grid">
+                    <div class="weui_grid_icon">
+                        <img src="images/icon_nav_swiper.png" alt="">
+                    </div>
+                    <p class="weui_grid_label">
+                        $$$$
+                    </p>
+                </a>
+                <a href="" class="weui_grid js_grid">
+                    <div class="weui_grid_icon">
+                        <img src="images/icon_nav_swiper.png" alt="">
+                    </div>
+                    <p class="weui_grid_label">
+                        $$$$
+                    </p>
+                </a>
+                <a href="" class="weui_grid js_grid">
+                    <div class="weui_grid_icon">
+                        <img src="images/icon_nav_swiper.png" alt="">
+                    </div>
+                    <p class="weui_grid_label">
+                        $$$$
+                    </p>
+                </a>
+            </div>
+            <!-- <div id="about" class='weui-popup-container'>
                 <div class="weui-popup-modal">
                     <header class='demos-header'>
                         <h2 class="demos-second-title">关于</h2>
@@ -304,11 +334,11 @@
                         </section>
                     </article>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="weui_tabbar">
-        <a href="#tab1" class="weui_tabbar_item weui_bar_item_on">
+        <a href="#tab1" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
                 <img src="images/icon_nav_button.png" alt="">
             </div>
@@ -326,17 +356,17 @@
             </div>
             <p class="weui_tabbar_label">能力</p>
         </a>
-        <a href="#tab4" class="weui_tabbar_item">
+        <a href="#tab4" class="weui_tabbar_item weui_bar_item_on">
             <div class="weui_tabbar_icon">
                 <img src="images/icon_nav_dialog.png" alt="">
             </div>
-            <p class="weui_tabbar_label">SaaS套件</p>
+            <p class="weui_tabbar_label">公众号</p>
         </a>
         <a href="#tab5" class="weui_tabbar_item">
             <div class="weui_tabbar_icon">
                 <img src="images/icon_nav_select.png" alt="">
             </div>
-            <p class="weui_tabbar_label">我</p>
+            <p class="weui_tabbar_label">\(^o^)/~</p>
         </a>
     </div>
 </div>
@@ -348,17 +378,192 @@
         color: #09BB07;
     }
 </style>
-
 <script src="src/lib/jquery-2.1.4.js"></script>
-<script src="src/lib/fastclick.js"></script>
+<script src="src/lib/jquery-weui.min.js"></script>
+<!-- <script src="src/lib/fastclick.js"></script>
 <script>
     $(function () {
         FastClick.attach(document.body);
     });
-</script>
-<script src="src/lib/jquery-weui.min.js"></script>
+</script> -->
+
+<!-- 微信公众号的登录回调代码👇 -->
 <script type="text/javascript">
+    var weichat = false;
+    $(document).ready(function(){
+        var urlParams = window.location.href.split('?')[1];
+        if(typeof urlParams == "string"){
+            var params = urlParams.split("&");
+        }
+        var object = {};
+        if(typeof params != 'undefined'){
+            for(var index in params){
+                var data = params[index].split('=');
+                if(typeof data[0] != 'undefined' && typeof data[1] != 'undefined'){
+                    object[data[0]] = data[1];
+                }else{
+                    console.log('get params fail');
+                    return false;
+                }
+            }
+            weichat = object;
+            var loginFlag = $('#weixinLogin');
+            loginFlag.html('登录完毕');
+            loginFlag.css("color","green");
+        }
+    });
+</script>
+<!-- 微信公众号的调试代码👇 -->
+<script type="text/javascript">
+    function checkApi($action){
+        //还未登录请求接口
+        if($action != 'login' && typeof weichat != 'object'){
+            $.alert({
+                title: "警告",
+                text: "请先登录"
+            });
+            return false;
+        }
+        //已经登录了请求接口
+        if($action == 'login' && typeof weichat == 'object'){
+            $.alert({
+                title: "警告",
+                text: "已经登录了"
+            });
+            return false;
+        }
+        return true;
+    }
+    //公众号调试
+    var $weixinRequestUrl = "http://saxon.ngrok.easoncomm.com/api.php";
+    function goWeixin(ele) {
+        var $action = $(ele).attr("data-action");
+        if(!checkApi($action))return false;
+        var $params = weichat;
+        $params.action = $action;
+        switch ($action) {
+            case "login":
+                message($action, "微信登陆" , $weixinRequestUrl , $action);
+                break;
+            case "normalPay":
+                messageAjax($action, "统一下单支付" , $weixinRequestUrl , $params);
+                break;
+            case "userInfo":
+                messageAjax($action, "用户信息" , $weixinRequestUrl , $params);
+                break;
+            case "setAgent":
+                messageAjax($action, "只设置应用的名字是没用的！" , $weixinRequestUrl , $params);
+                break;
+            case "getAgents":
+                messageAjax($action, "获取所有应用的信息！" , $weixinRequestUrl , $params);
+                break;
+            case "getMenu":
+                messageAjax($action, "获取对应应用的菜单信息（回调的菜单设置完了后没发布菜单获取到的是没有回调的菜单囧！）", $params);
+                break;
+            case "getContact":
+                messageAjax($action, "获取通信撸中的部门和子部门" , $weixinRequestUrl , $params);
+                break;
+            case "getUser":
+                messageAjax($action, "获取成员", $params);
+                break;
+            case "getBranchUser":
+                messageAjax($action, "获取部门成员信息" , $weixinRequestUrl , $params);
+                break;
+            case "getBranchUserDetail":
+                messageAjax($action, "获取部门成员信息详情" , $weixinRequestUrl , $params);
+                break;
+            case "getFodder":
+                messageAjax($action, "获取素材的种类个个数" , $weixinRequestUrl , $params);
+                break;
+            case "getFodderDetail":
+                messageAjax($action, "获取某个素材的个数" , $weixinRequestUrl , $params);
+                break;
+            case "delUpload":
+                messageAjax($action, "删除所有的永久图片资源" , $weixinRequestUrl , $params);
+                break;
+            default:
+                messageAjax($action, "人类要完蛋了！" , $weixinRequestUrl , $params);
+        }
+    }
+    function showResult(results){
+        var show = [];
+        for(var index in results){
+            if(typeof results[index] == "string")
+            show.push({
+                text: index+":"+results[index],
+                className: "color-success",
+            });
+        }
+        $.actions({actions:show});
+        /*var show = "";
+        for(var index in results){
+            show += "<div>"+index+":"+results[index]+"</div>";
+        }
+        show = "<h1>结果:</h1>" + show;
+        $.confirm(show, "自定义的标题");*/
+    }
+    function messageAjax($title, $content, $url,$params) {
+        //如果参数过多，通过 object 方式传入
+        $.alert({
+            title: $title,
+            text: $content,
+            onOK: function () {
+                $.post($url,$params,function(results){
+                    console.log(results);
+                    showResult(results);
+                    console.log(typeof results.jsApiParameters);
+                    console.log(JSON.parse(results.jsApiParameters));
+                    if(typeof results.jsApiParameters != "undefined"){
+                        $.confirm({
+                          title: '支付',
+                          text: '支付1毛',
+                          onOK: function () {
+                            //点击确认
+                            callpay(JSON.parse(results.jsApiParameters));
+                          },
+                          onCancel: function () {}
+                        });
+                    }
+                },'json');
+            },
+            autoClose: true
+        });
+    }
+
+</script>
+<script type="text/javascript">
+    //调用微信JS api 支付
+        function jsApiCall(jsApiParameters)
+        {
+            WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+                jsApiParameters,
+                function(res){
+//                    WeixinJSBridge.log(res.err_msg);
+//                    alert(res.err_code+res.err_desc+res.err_msg);
+                }
+            );
+        }
+
+        function callpay(jsApiParameters)
+        {
+            if (typeof WeixinJSBridge == "undefined"){
+                if( document.addEventListener ){
+                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                }else if (document.attachEvent){
+                    document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                }
+            }else{
+                jsApiCall(jsApiParameters);
+            }
+        }
+</script>
+<!-- 微信企业号的调试代码👇 -->
+<script type="text/javascript">
+    //企业号调试
     var $requestUrl = "http://123.207.2.19:666/index.php";
+
     function tempFile() {
         var url = $requestUrl + "?action=uploadTemp";
         var pams = [];
@@ -397,56 +602,56 @@
         console.log($action);
         switch ($action) {
             case "userInfo":
-                message($action, "获取用户的信息", $action);
+                message($action, "获取用户的信息" , $requestUrl , $action);
                 break;
             case "login":
-                message($action, "登入必须有第三方应用！", $action);
+                message($action, "登入必须有第三方应用！" , $requestUrl , $action);
                 break;
             case "getAgent":
-                message($action, "获取对应应用的信息", $action);
+                message($action, "获取对应应用的信息" , $requestUrl , $action);
                 break;
             case "setAgent":
-                message($action, "只设置应用的名字是没用的！", $action);
+                message($action, "只设置应用的名字是没用的！" , $requestUrl , $action);
                 break;
             case "getAgents":
-                message($action, "获取所有应用的信息！", $action);
+                message($action, "获取所有应用的信息！" , $requestUrl , $action);
                 break;
             case "getMenu":
                 message($action, "获取对应应用的菜单信息（回调的菜单设置完了后没发布菜单获取到的是没有回调的菜单囧！）", $action);
                 break;
             case "getContact":
-                message($action, "获取通信撸中的部门和子部门", $action);
+                message($action, "获取通信撸中的部门和子部门" , $requestUrl , $action);
                 break;
             case "getUser":
                 message($action, "获取成员", $action);
                 break;
             case "getBranchUser":
-                message($action, "获取部门成员信息", $action);
+                message($action, "获取部门成员信息" , $requestUrl , $action);
                 break;
             case "getBranchUserDetail":
-                message($action, "获取部门成员信息详情", $action);
+                message($action, "获取部门成员信息详情" , $requestUrl , $action);
                 break;
             case "getFodder":
-                message($action, "获取素材的种类个个数", $action);
+                message($action, "获取素材的种类个个数" , $requestUrl , $action);
                 break;
             case "getFodderDetail":
-                message($action, "获取某个素材的个数", $action);
+                message($action, "获取某个素材的个数" , $requestUrl , $action);
                 break;
             case "delUpload":
-                message($action, "删除所有的永久图片资源", $action);
+                message($action, "删除所有的永久图片资源" , $requestUrl , $action);
                 break;
             default:
-                message($action, "人类要完蛋了！", $action);
+                message($action, "人类要完蛋了！" , $requestUrl , $action);
         }
     }
 
-    function message($title, $content, $action) {
+    function message($title, $content, $url,$action) {
         //如果参数过多，通过 object 方式传入
         $.alert({
             title: $title,
             text: $content,
             onOK: function () {
-                document.location.href = $requestUrl + "?action=" + $action;
+                document.location.href = $url + "?action=" + $action;
             }
         });
     }
