@@ -397,6 +397,7 @@
         }
         var object = {};
         if(typeof params != 'undefined'){
+            alert(typeof params);
             for(var index in params){
                 var data = params[index].split('=');
                 if(typeof data[0] != 'undefined' && typeof data[1] != 'undefined'){
