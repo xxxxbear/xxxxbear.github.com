@@ -397,7 +397,6 @@
         }
         var object = {};
         if(typeof params != 'undefined'){
-            alert(typeof params);
             for(var index in params){
                 var data = params[index].split('=');
                 if(typeof data[0] != 'undefined' && typeof data[1] != 'undefined'){
@@ -407,10 +406,12 @@
                     return false;
                 }
             }
-            weichat = object;
-            var loginFlag = $('#weixinLogin');
-            loginFlag.html('登录完毕');
-            loginFlag.css("color","green");
+            if(object['openid']){
+                weichat = object;
+                var loginFlag = $('#weixinLogin');
+                loginFlag.html('登录完毕');
+                loginFlag.css("color","green");
+            }
         }
     });
 </script>
