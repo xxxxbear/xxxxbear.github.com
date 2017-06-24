@@ -511,8 +511,6 @@
                 $.post($url,$params,function(results){
                     console.log(results);
                     showResult(results);
-                    console.log(typeof results.jsApiParameters);
-                    console.log(JSON.parse(results.jsApiParameters));
                     if(typeof results.jsApiParameters != "undefined"){
                         $.confirm({
                           title: '支付',
