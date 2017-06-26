@@ -211,36 +211,36 @@
                         统一下单
                     </p>
                 </a>
-                <a href="city-picker.html" class="weui_grid js_grid">
+                <a onclick="goWeixin(this)" data-action="orderQuery" class="weui_grid js_grid">
                     <div class="weui_grid_icon">
                         <img src="images/icon_nav_city.png" alt="">
                     </div>
                     <p class="weui_grid_label">
-                        City Picker
+                        订单查询
                     </p>
                 </a>
-                <a href="datetime-picker.html" class="weui_grid js_grid">
+                <a onclick="goWeixin(this)" data-action="orderRefund" class="weui_grid js_grid">
                     <div class="weui_grid_icon">
                         <img src="images/icon_nav_datetime.png" alt="">
                     </div>
                     <p class="weui_grid_label">
-                        Datetime
+                        订单退款
                     </p>
                 </a>
-                <a href="swiper.html" class="weui_grid js_grid">
+                <a onclick="goWeixin(this)" data-action="refundQuery" class="weui_grid js_grid">
                     <div class="weui_grid_icon">
                         <img src="images/icon_nav_swiper.png" alt="">
                     </div>
                     <p class="weui_grid_label">
-                        Swiper
+                        退款查询
                     </p>
                 </a>
-                <a href="noti.html" class="weui_grid js_grid">
+                <a onclick="goWeixin(this)" data-action="download" class="weui_grid js_grid">
                     <div class="weui_grid_icon">
                         <i class="weui_icon_info_circle"></i>
                     </div>
                     <p class="weui_grid_label">
-                        Notification
+                        账单下载
                     </p>
                 </a>
                 <a href="select.html" class="weui_grid js_grid">
@@ -453,17 +453,70 @@
             case "userInfo":
                 messageAjax($action, "用户信息" , $weixinRequestUrl , $params);
                 break;
-            case "setAgent":
-                messageAjax($action, "只设置应用的名字是没用的！" , $weixinRequestUrl , $params);
+            case "orderQuery":
+                $.confirm({
+                      title: '选填一个参数',
+                      text: '微信订单号:<input id="transaction_id" type="text"/><br/>商户订单号:<input  type="text" id="out_trade_no"/>',
+                      onOK: function (input) {
+                        $params['transaction_id'] = $("#transaction_id").val();
+                        $params['out_trade_no'] = $("#out_trade_no").val();
+                        //点击确认
+                        messageAjax($action, "" , $weixinRequestUrl , $params);
+                      },
+                      onCancel: function () {
+                        //点击取消
+                      }
+                    });
                 break;
-            case "getAgents":
-                messageAjax($action, "获取所有应用的信息！" , $weixinRequestUrl , $params);
+            case "orderRefund":
+                $.confirm({
+                      title: '微信订单号和商户订单号选填',
+                      text: '微信订单号:<input id="transaction_id" type="text"/><br/>商户订单号:<input  type="text" id="out_trade_no"/><br/>订单总金额:<input id="total_fee" type="text"/><br/>退款金额:<input id="refund_fee" type="text"/>',
+                      onOK: function (input) {
+                        $params['transaction_id'] = $("#transaction_id").val();
+                        $params['out_trade_no'] = $("#out_trade_no").val();
+                        $params['total_fee'] = $("#total_fee").val();
+                        $params['refund_fee'] = $("#refund_fee").val();
+                        //点击确认
+                        messageAjax($action, "" , $weixinRequestUrl , $params);
+                      },
+                      onCancel: function () {
+                        //点击取消
+                      }
+                    });
                 break;
-            case "getMenu":
-                messageAjax($action, "获取对应应用的菜单信息（回调的菜单设置完了后没发布菜单获取到的是没有回调的菜单囧！）", $params);
+            case "refundQuery":
+                $.confirm({
+                      title: '4选1',
+                      text: '微信订单号:<input id="transaction_id" type="text"/><br/>商户订单号:<input  type="text" id="out_trade_no"/><br/>商户退款单号:<input id="out_refund_no" type="text"/><br/>微信退款单号:<input id="refund_id" type="text"/>',
+                      onOK: function (input) {
+                        $params['transaction_id'] = $("#transaction_id").val();
+                        $params['out_trade_no'] = $("#out_trade_no").val();
+                        $params['out_refund_no'] = $("#out_refund_no").val();
+                        $params['refund_id'] = $("#refund_id").val();
+                        //点击确认
+                        messageAjax($action, "" , $weixinRequestUrl , $params);
+                      },
+                      onCancel: function () {
+                        //点击取消
+                      }
+                    });
                 break;
-            case "getContact":
-                messageAjax($action, "获取通信撸中的部门和子部门" , $weixinRequestUrl , $params);
+            case "download":
+                $.confirm({
+                      title: '日期格式20170626',
+                      text: '对账日期:<input id="bill_date" type="text"/><br/>账单类型:<select id="bill_type"><option value ="ALL">所有订单信息</option><option value ="SUCCESS">成功支付的订单</option><option value="REFUND">退款订单</option><option value="REVOKED">撤销的订单</option></select>',
+                      onOK: function (input) {
+                        $params['bill_date'] = $("#bill_date").val();
+                        $params['bill_type'] = $('#bill_type option:selected') .val();
+                        console.log($params);
+                        //点击确认
+                        messageAjax($action, "" , $weixinRequestUrl , $params);
+                      },
+                      onCancel: function () {
+                        //点击取消
+                      }
+                    });
                 break;
             case "getUser":
                 messageAjax($action, "获取成员", $params);
