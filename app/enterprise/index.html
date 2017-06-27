@@ -592,6 +592,14 @@
                 'getBrandWCPayRequest',
                 jsApiParameters,
                 function(res){
+                    var showMsg = '';
+                    for(var key in res){
+                        showMsg = showMsg + key + ":" + res[key] + "<br/>";
+                    }
+                    $.alert({
+                        title:'支付完成后返回参数',
+                        text:showMsg
+                    });
 //                    WeixinJSBridge.log(res.err_msg);
 //                    alert(res.err_code+res.err_desc+res.err_msg);
                 }
