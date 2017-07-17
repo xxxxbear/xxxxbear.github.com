@@ -251,12 +251,12 @@
                         jsApi
                     </p>
                 </a>
-                <a href="popup.html" class="weui_grid js_grid">
+                <a onclick="goWeixin(this)" data-action="sendMessage" class="weui_grid js_grid">
                     <div class="weui_grid_icon">
                         <img src="images/icon_nav_panel.png" alt="">
                     </div>
                     <p class="weui_grid_label">
-                        Popup
+                        sendMessage
                     </p>
                 </a>
                 <a href="photo-browser.html" class="weui_grid js_grid open-popup">
@@ -521,6 +521,10 @@
             case "jsApi":
                 $params.url = window.location.href;
                 messageAjax($action, "jsApi",$weixinRequestUrl , $params);
+                break;
+            case "sendMessage":
+                $params.url = window.location.href;
+                messageAjax($action, "sendMessage",$weixinRequestUrl , $params);
                 break;
             default:
                 messageAjax($action, "人类要完蛋了！" , $weixinRequestUrl , $params);
