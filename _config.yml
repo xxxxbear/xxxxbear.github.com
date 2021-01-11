@@ -2,7 +2,7 @@ title: xxxxbear.GitHub.com
 description: xxxxbear.github.com
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-leap-day
+theme: jekyll-theme-slate
 
 gems:
   - jekyll-mentions
